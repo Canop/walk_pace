@@ -39,7 +39,7 @@ fn count_files_running(path: &Path) -> u32 {
 
 ////////// Counting visible files
 
-// taken from WalkDir's readme
+// counting visible files using the code of walkdir's readme
 fn is_wde_hidden(entry: &walkdir::DirEntry) -> bool {
     entry.file_name()
          .to_str()
@@ -56,6 +56,7 @@ fn count_visible_files_walking(path: &Path) -> u32 {
     }
     n
 }
+// counting visible files without walkdir
 fn is_de_hidden(entry: &fs::DirEntry) -> bool {
     entry.file_name()
          .to_str()
@@ -94,10 +95,10 @@ fn measure(name: &str, dir: &Path, fun: fn(&Path)->u32){
 
 fn warm_up(path: &Path){
     println!("warming up");
-    println!("  count_files_walking. Result={}", count_files_walking(path));
-    println!("  count_files_running. Result={}", count_files_running(path));
-    println!("  count_visible_files_walking. Result={}", count_visible_files_walking(path));
-    println!("  count_visible_files_running. Result={}", count_visible_files_running(path));
+    println!("  count_files_walking. Number of files: {}", count_files_walking(path));
+    println!("  count_files_running. Number of files: {}", count_files_running(path));
+    println!("  count_visible_files_walking. Number of files: {}", count_visible_files_walking(path));
+    println!("  count_visible_files_running. Number of files: {}", count_visible_files_running(path));
 }
 fn bench(dir: &Path){
     println!("measuring");
