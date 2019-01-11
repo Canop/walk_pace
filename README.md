@@ -1,6 +1,6 @@
 
 
-The standard walkdir crate offers a very configurable way to walk over the files of a directory.
+The de facto standard [walkdir](https://github.com/BurntSushi/walkdir) crate offers a very configurable way to walk over the files of a directory.
 
 But this power comes with a cost.
 
@@ -20,6 +20,8 @@ Here's the output on my computer:
 	counting visible files, walking, took 1.481694735s
 	counting visible files, running, took 1.27163876s
 
+
+(the files listed by walkdir and not by my iteration are the ones in `/proc`)
 
 And here are my personal conclusions:
 
