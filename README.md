@@ -4,7 +4,7 @@ The de facto standard [walkdir](https://github.com/BurntSushi/walkdir) crate off
 
 But this power comes with a cost.
 
-After having improved the performances of [broot](https://github.com/Canop/broot) by 15% by removing walkdir, I wanted to have a clearer idea of the cost, which is why I wrote this simple bench comparing walkdir with a naive and obvious implementation for some very simple operations.
+After having improved the performances of computing directory size in [broot](https://github.com/Canop/broot) by 15% by removing walkdir, I wanted to have a clearer idea of the cost, which is why I wrote this simple bench comparing walkdir with a naive and obvious implementation for some very simple operations.
 
 Here's the output on my computer:
 
@@ -20,9 +20,9 @@ Here's the output on my computer:
 	counting visible files, walking, took 1.481694735s
 	counting visible files, running, took 1.27163876s
 
-In all my tests I get about the same result of 15% overhead of WalkDir over a simple iteration.
+The files listed by walkdir and not by my iteration are the ones in `/proc`, which looks like a bug in walkdir.
 
-(the files listed by walkdir and not by my iteration are the ones in `/proc`)
+In all my tests I get about the same result of 15% overhead of WalkDir over a simple iteration.
 
 And here are my personal conclusions:
 
