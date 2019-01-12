@@ -27,5 +27,5 @@ In all my tests I get about the same result of 15% overhead of WalkDir over a si
 And here are my personal conclusions:
 
 * WalkDir does allow for a much shorter and clearer code
-* WalkDir is a poor choice when performances matter and the operation involves dealing with a lot of files (at least in the cases I tested)
+* WalkDir might be a poor choice when performances matter and the operation involves dealing with a lot of files (at least in the cases I tested)
 

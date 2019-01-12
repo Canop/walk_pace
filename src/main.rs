@@ -47,7 +47,7 @@ fn is_wde_hidden(entry: &walkdir::DirEntry) -> bool {
          .unwrap_or(false)
 }
 fn count_visible_files_walking(path: &Path) -> u32 {
-    let mut n: u32 = 1;
+    let mut n: u32 = 0;
     let walker = WalkDir::new(path).into_iter();
     for e in walker.filter_entry(|e| !is_wde_hidden(e)) {
         if let Ok(_) = e {
@@ -64,7 +64,7 @@ fn is_de_hidden(entry: &fs::DirEntry) -> bool {
          .unwrap_or(false)
 }
 fn count_visible_files_running(path: &Path) -> u32 {
-    let mut n: u32 = 0;
+    let mut n: u32 = 1;
     let mut dirs: Vec<PathBuf> = Vec::new();
     dirs.push(path.to_path_buf());
     while let Some(dir) = dirs.pop() {
