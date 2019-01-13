@@ -20,12 +20,13 @@ Here's the output on my computer:
 	counting visible files, walking, took 1.481694735s
 	counting visible files, running, took 1.27163876s
 
-The files listed by walkdir and not by my iteration are the ones in `/proc`, which looks like a bug in walkdir.
+(the files listed by walkdir and not by my iteration are in `/proc`)
 
-In all my tests I get about the same result of 15% overhead of WalkDir over a simple iteration.
+In all my tests I get about the same result of 15% overhead of WalkDir over a simple iteration, be it DFS, BFS, or mixed.
 
 And here are my personal conclusions:
 
 * WalkDir does allow for a much shorter and clearer code
-* WalkDir might be a poor choice when performances matter and the operation involves dealing with a lot of files (at least in the cases I tested)
+* WalkDir isn't *that* slow
+* WalkDir might be a poor choice when performances matter and the operation involves dealing with a lot of files
 
